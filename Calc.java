@@ -1,3 +1,4 @@
-public class Calc {
+public interface Calc {
     
+    double operate(String input);
 }
