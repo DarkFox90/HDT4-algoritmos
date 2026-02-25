@@ -3,7 +3,7 @@ public class Calculator implements Calc {
     private Stack<Integer> stack;
     private static Calculator calculator;
 
-    private Calculator() {
+    public Calculator() {
     }
 
     public static Calculator getInstance() {
@@ -46,5 +46,11 @@ public class Calculator implements Calc {
     }
 
     public boolean isNumeric(String num) {
+         try {
+            Integer.parseInt(num);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }   
 }
