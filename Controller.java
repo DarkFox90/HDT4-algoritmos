@@ -9,7 +9,6 @@ public class Controller {
 
     public Controller(Calc calculator) {
         this.calculator = calculator;
-        ReadFile();
     }
 
     public void ReadFile() {
@@ -36,9 +35,19 @@ public class Controller {
 
         for (int i = 0; i < infix.length(); i++) {
             char x = infix.charAt(i);
-            if (Character.isLetterOrDigit(x)) {
-                postfix.append(x).append(" "); 
-            } 
+            
+            if (x == ' ') {
+                continue;
+            }
+
+            if (Character.isDigit(x)) {
+                while (i < infix.length() && Character.isDigit(infix.charAt(i))) {
+                    postfix.append(infix.charAt(i));
+                    i++; 
+                }
+                postfix.append(" "); 
+                i--; 
+            }
             else if (x == '(') {
                 stack.push(x);
             } 

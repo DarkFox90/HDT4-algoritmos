@@ -3,7 +3,7 @@ public class Calculator implements Calc {
     private Stack<Integer> stack;
     private static Calculator calculator;
 
-    public Calculator() {
+    private Calculator() {
     }
 
     public static Calculator getInstance() {
