@@ -99,4 +99,31 @@ public class TestJUNit {
         stack.pop();
         assertTrue(stack.isEmpty());
     }
+
+    @Test
+    public void testPushAndPeekSinglyList() {
+        IList<Integer> simpleList = new SinglyLinkedList<>();
+        StackList<Integer> stack = new StackList<>(simpleList);
+
+        stack.push(15);
+        stack.push(30);
+
+        assertFalse(stack.isEmpty());
+        assertEquals(30, stack.peek());
+        assertEquals(2, stack.size());
+    }
+
+    @Test
+    public void testPopWithDoublyList() {
+        IList<Integer> doubleList = new DoublyLinkedList<>();
+        StackList<Integer> stack = new StackList<>(doubleList);
+
+        stack.push(30);
+        stack.push(23);
+        stack.push(36);
+
+        assertEquals(36, stack.pop());
+        assertEquals(23, stack.pop());
+        assertFalse(stack.isEmpty());
+    }
 }
